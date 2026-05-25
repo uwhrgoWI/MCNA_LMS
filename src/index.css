@@ -1,0 +1,252 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --b700: #1d4ed8;
+    --b600: #2563eb;
+    --b500: #3b82f6;
+    --b400: #60a5fa;
+    --b100: #dbeafe;
+    --b50: #eff6ff;
+
+    --p700: #6d28d9;
+    --p600: #7c3aed;
+    --p500: #8b5cf6;
+    --p400: #a78bfa;
+    --p100: #ede9fe;
+    --p50: #f5f3ff;
+
+    /* Gradient definition */
+    --grad: linear-gradient(135deg, var(--b600), var(--p600));
+
+    /* Neutrals */
+    --n900: #111827;
+    --n800: #1f2937;
+    --n600: #4b5563;
+    --n400: #9ca3af;
+    --n200: #e5e7eb;
+    --n100: #f3f4f6;
+    --n50: #f9fafb;
+
+    /* Semantic */
+    --green: #16a34a;
+    --green2: #dcfce7;
+    --green3: #86efac;
+    --amber: #d97706;
+    --amber2: #fef3c7;
+    --red: #dc2626;
+    --red2: #fee2e2;
+    --cyan: #0891b2;
+    --cyan2: #cffafe;
+
+    /* Surfaces */
+    --bg: #f3f4f9;
+    --sur: #ffffff;
+    --sur2: #f8f9ff;
+    --bd: #e4e7f5;
+    --bd2: #c7cce8;
+
+    /* Layout metrics */
+    --sw: 260px;
+    --th: 62px;
+    --r: 12px;
+    --rs: 8px;
+    --rxs: 5px;
+
+    /* Shadows */
+    --sh: 0 1px 3px rgba(37,99,235,.08), 0 1px 2px rgba(37,99,235,.05);
+    --sh2: 0 4px 16px rgba(37,99,235,.12);
+    --sh3: 0 12px 40px rgba(37,99,235,.16);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--n900);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes toastSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-toast {
+  animation: toastSlide 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Component Styling Hooks */
+.btn-primary {
+  background: var(--grad);
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--sh2);
+  filter: brightness(1.08);
+}
+.btn-primary:active {
+  transform: translateY(1px);
+  filter: brightness(0.95);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--n800);
+  border: 1px solid var(--n200);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover {
+  background-color: var(--n50);
+  transform: translateY(-1px);
+}
+.btn-secondary:active {
+  transform: translateY(1px);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--n200);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--n400);
+}
+
+/* Schedule and tables aesthetics */
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--r);
+  border: 1px solid var(--bd);
+  background: white;
+  box-shadow: var(--sh);
+}
+
+.lms-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lms-table th {
+  background-color: var(--n50);
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--n600);
+  border-bottom: 1px solid var(--bd);
+  text-align: left;
+}
+
+.lms-table td {
+  padding: 12px 16px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--n100);
+  color: var(--n800);
+}
+
+.lms-table tr:last-child td {
+  border-bottom: none;
+}
+
+.lms-table tbody tr:hover {
+  background-color: var(--b50);
+}
+
+/* Card presets matches prompt */
+.stat-card-border-blue {
+  border-top: 4px solid var(--b500);
+}
+.stat-card-border-purple {
+  border-top: 4px solid var(--p500);
+}
+.stat-card-border-emerald {
+  border-top: 4px solid var(--green);
+}
+.stat-card-border-amber {
+  border-top: 4px solid var(--amber);
+}
+.stat-card-border-red {
+  border-top: 4px solid var(--red);
+}
+
+/* Custom CSS Toggles corresponding to prompt specifications */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 22px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--n200);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
+
+input:checked + .toggle-slider {
+  background-image: var(--grad);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(22px);
+}

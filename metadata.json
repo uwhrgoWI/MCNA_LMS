@@ -1,0 +1,6 @@
+{
+  "name": "MCNA Technology School LMS",
+  "description": "A comprehensive, high-fidelity Learning Management System (LMS) for MCNA Technology School, featuring role-based dashboards, authentication, curriculum portals, grading tools, and interactive schedules.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
